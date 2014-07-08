@@ -41,7 +41,7 @@ end
 def randomize(an_array)
   # TODO: return a randomized copy of an_array
   # example: randomize([1, 2, 3, 4]) => [2, 1, 4, 3]
-  return an_array.suffle
+  return an_array.shuffle
 end
 
 def ascending_order(an_array)
