@@ -6,7 +6,7 @@ def user_interface
   until user_input == "I am going to work right now SIR !"
     puts "What you do want to say to your coach ?"
     user_input = gets.chomp
-    coach_answer(user_input)
+    puts coach_answer(user_input)
   end
 end
 
