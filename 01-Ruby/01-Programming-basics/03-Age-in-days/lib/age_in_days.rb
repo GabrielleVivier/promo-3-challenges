@@ -11,5 +11,4 @@ def age_in_days(day, month, year)
 
   age = delta_year * 365.25 + delta_month * 29.5 + delta_day
   age = age.to_i
-  return age
 end
