@@ -10,5 +10,6 @@ def age_in_days(day, month, year)
   delta_day = Time.now.day - day
 
   age = delta_year * 365.25 + delta_month * 29.5 + delta_day
-  return age.to_i
+  age = age.to_i
+  return age
 end
