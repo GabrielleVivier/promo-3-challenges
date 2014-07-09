@@ -3,7 +3,7 @@ def pmu_format!(race_array)
 
   horses_number = race_array.size
   i = 0
-  while i < horses_number
+  for i in 0...horses_number
     race_array[i] = "#{i + 1}-#{race_array[i]}!"
     i = i + 1
   end
