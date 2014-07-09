@@ -1,19 +1,21 @@
-class Player_moving
+class PlayerMoving
 
   Grid_POSITIONS = (1..100).to_a
 
-  def initialize (position)
+  def initialize(position)
     @position = position
     @iterations = 0
-    raise "Initial position must be between 1 and 100" unless Grid_POSITIONS.include? @position
+    unless Grid_POSITIONS.include? @position
+      raise 'Initial position must be between 1 and 100'
+    end
   end
 
-  def move (distanceInMeters)
+  def move(distanceInMeters)
     @position += distanceInMeters
   end
 
   def play
-    if self.status_Player == :play
+    if self.Status_Player == :play
       if rand(1..100) < 50
         move(rand(1..10))
       else
@@ -26,7 +28,7 @@ class Player_moving
     @position = 101
   end
 
-def status_Player
+def Status_Player
     if @position > 100
       :win
     elsif @position < 0
@@ -34,10 +36,10 @@ def status_Player
     else
       :play
     end
-  end
+end
 
-  def hasWon
-    status_Player == :win
+  def has_Won
+    Status_Player == :win
   end
 
 end
@@ -46,11 +48,11 @@ player = Player_moving.new(50)
 
 player.play
 
-puts player.status_Player == :play # true
+puts player.Status_Player == :play # true
 
 player.cheat
 
-puts player.hasWon == true
+puts player.has_-Won == true
 
 begin
   Player_moving.new(110)
