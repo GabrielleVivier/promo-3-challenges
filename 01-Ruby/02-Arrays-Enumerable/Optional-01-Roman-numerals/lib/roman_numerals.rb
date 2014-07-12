@@ -18,7 +18,6 @@ def new_roman_numeral(an_integer)
   arabic_numbers = [1000, 500, 100, 50, 10, 5, 1]
   roman_numbers = ["M", "D", "C", "L", "X", "V", "I"]
   roman_string = ""
-  require 'Prime'
   arabic_numbers.each_with_index do |value, index|
     if (an_integer*5) / (value) == 9 && value.to_s.chars.first == "5"
     quotient = an_integer / value
