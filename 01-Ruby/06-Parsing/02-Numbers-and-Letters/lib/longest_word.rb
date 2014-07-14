@@ -36,9 +36,8 @@ def run_game(attempt, grid, start_time, end_time)
 end
 
 def check_if_included?(attempt, grid)
-  attempt = attempt.upcase
-  attempt_array = attempt.split(//)
-  attempt_array.all? { |x| grid.include?(x)}
+  letters = attempt.upcase.split(//)
+  letters.all? { |letter| letters.count(letter) <= grid.count(letter) }
 end
 
 def translation(attempt)
