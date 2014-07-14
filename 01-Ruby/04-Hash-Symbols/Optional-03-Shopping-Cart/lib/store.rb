@@ -33,7 +33,7 @@ def store_items_to_s
   string = ""
   store_product = store_items
   store_product.each do |key, value|
-    string += "- #{key}: #{value}€ \n"
+    string += "- #{key}: #{value}€\n"
   end
-  puts string
+  string
 end
