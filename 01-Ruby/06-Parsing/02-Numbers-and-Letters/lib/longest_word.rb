@@ -15,16 +15,16 @@ def run_game(attempt, grid, start_time, end_time)
   #TODO: runs the game and return detailed hash of result
   hash = {}
   if check_if_included?(attempt, grid)
-    if check_if_word?(attempt)
-      hash[:time] = start_time - end_time
-      hash[:translation] = translation(attempt)
-      hash[:score] = "#{attempt.split(//).count - 1.to_f / (start_time - end_time)}"
-      hash[:message] = "well done"
-    else
+    if translation(attempt).nil?
       hash[:translation] = nil
       hash[:time] = start_time - end_time
       hash[:score] = 0
       hash[:message] = "not an english word"
+    else
+      hash[:time] = start_time - end_time
+      hash[:translation] = translation(attempt)
+      hash[:score] = "#{attempt.split(//).count - 1.to_f / (start_time - end_time)}"
+      hash[:message] = "well done"
     end
   else
     hash[:translation] = translation(attempt)
@@ -39,14 +39,6 @@ def check_if_included?(attempt, grid)
   attempt = attempt.upcase
   attempt_array = attempt.split(//)
   attempt_array.all? { |x| grid.include?(x)}
-end
-
-def check_if_word?(attempt)
-  if translation(attempt).nil?
-    false
-  else
-    true
-  end
 end
 
 def translation(attempt)
