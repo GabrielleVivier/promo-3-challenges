@@ -45,7 +45,7 @@ def translation(attempt)
   open(api_url) do |stream|
     api_return = JSON.parse(stream.read)
   end
-  if api_return.has_key? "Error"
+  if api_return.has_key?("Error")
     translated_word = nil
   else
     translated_word = api_return["term0"]["PrincipalTranslations"]["0"]["FirstTranslation"]["term"]
