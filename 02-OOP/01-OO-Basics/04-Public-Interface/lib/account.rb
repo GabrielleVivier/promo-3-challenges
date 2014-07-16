@@ -12,6 +12,10 @@ class BankAccount
   # - you can withdraw or deposit money
   # - You can see the balance of the account (through the position variable)
 
+  require_relative "transaction"
+
+  attr_reader :name, :position
+
   MIN_DEPOSIT =  100
 
   def initialize(name, iban, initial_deposit, password)
@@ -27,25 +31,40 @@ class BankAccount
   def withdraw(amount)
     # TODO: Call add_transaction with the right argument
     # TODO: returns a string with a message
+    add_transaction(-amount)
+    "You have withdrawn: #{amount}€\nYour current position is: #{@position}"
   end
 
   def deposit(amount)
     # TODO: Call add_transaction with the right argument
     # TODO: returns a string with a message
+    add_transaction(amount)
+    "You have made a deposit of: #{amount}€\nYour current position is: #{@position}"
   end
 
   def transactions_history(args = {})
     # TODO: Check if there is a password and if so if it is correct
     # TODO: return a string displaying the transactions, BUT NOT return the transaction array !
+    if args == {}
+      "no password given"
+    else
+      if args[:password] == @password
+        "Past transactions:" + "\n" + @transactions.join(" ")
+      else
+        "wrong password"
+      end
+    end
   end
 
   def iban
     # TODO: Hide the middle of the IBAN like FR14**************606 and return it
+    @iban[0..3] + "*"*(@iban.size - 7) + @iban[-3..-1]
   end
 
   def to_s
     # Method used when printing account object as string (also used for string interpolation)
     # TODO: Displays the account owner, the hidden iban and the position of the account
+    return "Name: #{@name}\nIban: #{iban}\nPosition: #{@position}"
   end
 
   private
@@ -53,6 +72,8 @@ class BankAccount
   def add_transaction(amount)
     # TODO: add the amount in the transactions array
     # TODO: update the current position (which represents the balance of the account)
+    @transactions << amount
+    @position += amount
   end
 
 end
