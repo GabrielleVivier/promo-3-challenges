@@ -49,7 +49,7 @@ class BankAccount
       "no password given"
     else
       if args[:password] == @password
-        "Past transactions:" + "\n" + @transactions.join(" ")
+        @transactions.map(&:to_s).join("\n")
       else
         "wrong password"
       end
@@ -72,7 +72,7 @@ class BankAccount
   def add_transaction(amount)
     # TODO: add the amount in the transactions array
     # TODO: update the current position (which represents the balance of the account)
-    @transactions << amount
+    @transactions << Transaction.new(amount)
     @position += amount
   end
 

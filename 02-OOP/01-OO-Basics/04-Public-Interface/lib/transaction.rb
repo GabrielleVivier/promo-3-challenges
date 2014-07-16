@@ -9,6 +9,6 @@ class Transaction
 
   def to_s
     # Nicely print transaction infos using Time#strftime.
-    print @date.strftime("Transaction done on %Y-%m-%d %H:%M %z")
+    print @date.strftime("@{amount} euros on %Y-%m-%d at %H:%M %z")
   end
 end
