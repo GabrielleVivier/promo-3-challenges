@@ -9,7 +9,6 @@ def group_mails( emails )
     email_array = [email]
 
     if email_hash.has_key?(mail_provider)
-
       email_hash[mail_provider] += email_array
     else
       email_hash[mail_provider] = email_array
