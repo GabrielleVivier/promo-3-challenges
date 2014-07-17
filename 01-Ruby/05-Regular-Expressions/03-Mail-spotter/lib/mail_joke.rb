@@ -2,7 +2,7 @@
 
 def mail_joke(email)
   # TODO: Return a joke suited to the email provided
-  match_data = email.match(/\A([-\w]+)(\.?)([-\w]+)?@(\w+).(\w{3})\z/)
+  match_data = email.match(/\A([-\w]+)(\.?)([-\w]+)?@(\w+)\.(\w{3})\z/)
   if email =~ /\A([-\w]+)(\.?)([-\w]+)?@(\w+).(\w{3})\z/
     if  email.match(/lewagon/)
       if match_data[3].nil?
@@ -14,7 +14,7 @@ def mail_joke(email)
       if match_data[3].nil?
         return "#{match_data[1]}, you're an average but modern person"
       else
-        return "#{match_data[1]}#{match_data[3]}, you're an average but modern person"
+        return "#{match_data[1]} #{match_data[3]}, you're an average but modern person"
       end
     elsif email.match(/live/)
       if match_data[3].nil?
