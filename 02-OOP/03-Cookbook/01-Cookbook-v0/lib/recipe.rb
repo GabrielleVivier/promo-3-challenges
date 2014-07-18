@@ -1,9 +1,10 @@
 class Recipe
 
-  attr_reader :name
+  attr_reader :name, :description
 
-  def initialize(name)
-    @name = name
+  def initialize(attributes = {})
+    @name = attributes[:name]
+    @description = attributes[:description]
   end
 
 end
