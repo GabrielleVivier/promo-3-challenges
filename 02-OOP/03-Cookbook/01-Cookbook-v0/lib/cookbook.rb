@@ -2,7 +2,7 @@ require "csv"
 
 class Cookbook
 
-  attr_accessor :recipes
+  attr_reader :recipes
 
   def initialize(cookbook_file_path)
     @csv_options = { col_sep: "/", quote_char: '"'}
@@ -11,8 +11,8 @@ class Cookbook
     load_csv(@cookbook_file_path)
   end
 
-  def add_recipe(attributes = {name: name, description: description})
-    @recipes << Recipe.new(attributes)
+  def add_recipe(recipe)
+    @recipes << recipe
 
     save
   end
