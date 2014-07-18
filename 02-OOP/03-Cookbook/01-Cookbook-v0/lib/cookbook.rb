@@ -8,7 +8,6 @@ class Cookbook
   attr_reader :recipes
 
   def initialize(cookbook_file_path)
-    @csv_options = { col_sep: "/", quote_char: '"'}
     @cookbook_file_path = cookbook_file_path
     @recipes = []
     load_csv(@cookbook_file_path)
@@ -21,7 +20,7 @@ class Cookbook
   end
 
   def save
-    CSV.open(@cookbook_file_path, 'w', @csv_options) do |csv|
+    CSV.open(@cookbook_file_path, 'w') do |csv|
       @recipes.each do |recipe|
         csv << [recipe.name, recipe.description]
       end
