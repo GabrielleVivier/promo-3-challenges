@@ -1,3 +1,3 @@
-def Controller
+class Controller
 
 end
