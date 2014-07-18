@@ -16,7 +16,11 @@ describe 'cart methods' do
       add_to_cart(cart, PRODUCTS[3])
       add_to_cart(cart, 'whatever')
 
+<<<<<<< HEAD
       cart.must_equal [PRODUCTS[0], PRODUCTS[2], PRODUCTS[3], 'whatever']
+=======
+      cart.must_equal [PRODUCTS.select { |p| [0, 2, 3].include?(PRODUCTS.index(p)) }, 'whatever'].flatten
+>>>>>>> 836cdcbc6b8c14525d3844bb8b09a4ddb89d61a2
     end
 
   end

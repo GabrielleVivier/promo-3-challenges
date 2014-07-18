@@ -25,6 +25,10 @@ describe 'Shopping cart interface' do
 
     m = result.match(total_regex)
     total = m.captures[0].to_i
+<<<<<<< HEAD
+=======
+
+>>>>>>> 836cdcbc6b8c14525d3844bb8b09a4ddb89d61a2
     [0, 2, 4].each { |idx| total -= PRICES[idx] }
 
     total.must_equal(0)
