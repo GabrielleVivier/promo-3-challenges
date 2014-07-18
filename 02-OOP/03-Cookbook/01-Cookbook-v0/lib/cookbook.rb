@@ -1,4 +1,7 @@
 require "csv"
+require_relative "recipe"
+require_relative "controller"
+require_relative "view"
 
 class Cookbook
 
@@ -29,7 +32,6 @@ class Cookbook
     CSV.foreach(file) do |row|
       each_recipe = { name: row[0], description: row[1] }
       @recipes << Recipe.new(each_recipe)
-
     end
   end
 
