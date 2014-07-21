@@ -8,7 +8,7 @@ class View
 
   def display_recipes(recipes_tab)
     recipes_tab.each_with_index do |recipe, recipe_id|
-    puts "#{recipe_id + 1} - #{recipe.name} : #{recipe.description}"
+    puts "#{recipe_id + 1} - #{recipe.name} : #{recipe.description}, #{recipe.rating}"
     end
   end
 

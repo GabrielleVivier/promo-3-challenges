@@ -13,7 +13,6 @@ class Marmiton
   def import_recipes_from_marmiton
     doc = Nokogiri::HTML(open(@url))
     @marmiton_recipes += parse_recipes(doc)
-    self
   end
 
   def parse_recipes(doc)
@@ -24,8 +23,8 @@ class Marmiton
 
   def parse_recipe(element)
     name = element.search('.m_search_titre_recette > a').inner_text
-    description = element.seach('m_search_result_part4').inner_text
-    rating = element.search('.etoile1').size / 5
+    description = element.search('.m_search_result_part4').inner_text.strip
+    rating = "#{element.search('.etoile1').size} / 5"
     Recipe.new(name: name, description: description, rating: rating)
   end
 

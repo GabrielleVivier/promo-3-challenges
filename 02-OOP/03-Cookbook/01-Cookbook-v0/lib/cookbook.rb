@@ -19,8 +19,8 @@ class Cookbook
     save
   end
 
-  def add_marmiton_recipes(marmiton_recipes)
-    marmiton_recipes.each do |element|
+  def add_marmiton_recipes(recipes_to_load)
+    recipes_to_load.each do |recipe|
       @recipes << recipe
     end
     save

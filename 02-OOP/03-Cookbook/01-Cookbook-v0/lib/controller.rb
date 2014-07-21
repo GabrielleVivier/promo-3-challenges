@@ -28,8 +28,9 @@ class Controller
 
   def create_marmiton_recipes
     ingredient = @view.get_ingredient_for_url
-    marmiton_recipes = Marmiton.new(ingredient).import_recipes_from_marmiton
-    @cookbook.add_marmiton_recipes(marmiton_recipes)
+    marmiton = Marmiton.new(ingredient)
+    recipes_to_load = marmiton.import_recipes_from_marmiton
+    @cookbook.add_marmiton_recipes(recipes_to_load)
   end
 
 end
