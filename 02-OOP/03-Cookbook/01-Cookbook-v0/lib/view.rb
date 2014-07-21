@@ -1,6 +1,7 @@
 require_relative "cookbook"
 require_relative "recipe"
 require_relative "controller"
+require_relative "marmiton"
 require 'csv'
 
 class View
@@ -26,8 +27,9 @@ class View
     return gets.chomp.to_i
   end
 
-  def exit
-    "You're done, until next time, goodbye!"
+  def get_ingredient_for_url
+    puts "On which ingredient you want to load a research on marmiton ? "
+    return gets.chomp
   end
 
 end
