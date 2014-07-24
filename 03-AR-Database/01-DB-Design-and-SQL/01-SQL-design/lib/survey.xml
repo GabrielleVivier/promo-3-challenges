@@ -1,0 +1,99 @@
+
+
+
+
+-- ---
+-- Globals
+-- ---
+
+-- SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+-- SET FOREIGN_KEY_CHECKS=0;
+
+-- ---
+-- Table 'users'
+--
+-- ---
+
+DROP TABLE IF EXISTS `users`;
+
+CREATE TABLE `users` (
+  `id` TINYINT NULL AUTO_INCREMENT DEFAULT NULL,
+  `name` VARCHAR NOT NULL DEFAULT 'NULL',
+  PRIMARY KEY (`id`)
+);
+
+-- ---
+-- Table 'answers'
+--
+-- ---
+
+DROP TABLE IF EXISTS `answers`;
+
+CREATE TABLE `answers` (
+  `id` TINYINT NULL AUTO_INCREMENT DEFAULT NULL,
+  `content` VARCHAR NULL DEFAULT NULL,
+  `id_surveys` TINYINT NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+-- ---
+-- Table 'surveys'
+--
+-- ---
+
+DROP TABLE IF EXISTS `surveys`;
+
+CREATE TABLE `surveys` (
+  `id` TINYINT NULL AUTO_INCREMENT DEFAULT NULL,
+  `name` VARCHAR NULL DEFAULT NULL,
+  `question` VARCHAR NULL DEFAULT NULL,
+  `id_users` TINYINT NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+-- ---
+-- Table 'votes'
+--
+-- ---
+
+DROP TABLE IF EXISTS `votes`;
+
+CREATE TABLE `votes` (
+  `id` TINYINT NULL AUTO_INCREMENT DEFAULT NULL,
+  `id_surveys` TINYINT NULL DEFAULT NULL,
+  `id_answers` TINYINT NULL DEFAULT NULL,
+  `id_users` TINYINT NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+-- ---
+-- Foreign Keys
+-- ---
+
+ALTER TABLE `answers` ADD FOREIGN KEY (id_surveys) REFERENCES `surveys` (`id`);
+ALTER TABLE `surveys` ADD FOREIGN KEY (id_users) REFERENCES `users` (`id`);
+ALTER TABLE `votes` ADD FOREIGN KEY (id_surveys) REFERENCES `surveys` (`id`);
+ALTER TABLE `votes` ADD FOREIGN KEY (id_answers) REFERENCES `answers` (`id`);
+ALTER TABLE `votes` ADD FOREIGN KEY (id_users) REFERENCES `users` (`id`);
+
+-- ---
+-- Table Properties
+-- ---
+
+-- ALTER TABLE `users` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `answers` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `surveys` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `votes` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ---
+-- Test Data
+-- ---
+
+-- INSERT INTO `users` (`id`,`name`) VALUES
+-- ('','');
+-- INSERT INTO `answers` (`id`,`content`,`id_surveys`) VALUES
+-- ('','','');
+-- INSERT INTO `surveys` (`id`,`name`,`question`,`id_users`) VALUES
+-- ('','','','');
+-- INSERT INTO `votes` (`id`,`id_surveys`,`id_answers`,`id_users`) VALUES
+-- ('','','','');
