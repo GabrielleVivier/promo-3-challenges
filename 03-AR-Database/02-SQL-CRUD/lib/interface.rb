@@ -8,7 +8,7 @@ end
 db_path = "lib/db/news.sqlite"
 db = SQLite3::Database.new(db_path)
 
-create_scheme(db)
+# create_scheme(db)
 
 while true
 
