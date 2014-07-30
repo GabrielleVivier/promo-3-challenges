@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Blog</title>
+  <title>Registration</title>
   <!--Normalize CSS-->
   <link href="normalize.css" rel="stylesheet" type='text/css'>
 
@@ -14,6 +14,68 @@
   <div class="container">
 
     <!--YOUR FORM HERE-->
+    <header>
+    <h1>DIGITICK</h1>
+    </header>
+
+    <div class="form">
+
+      <h2>Wheather Festival</h2>
+
+      <section>
+
+        <h3>Sign up to Digitick</h3>
+         <div class="login">
+          <form action="/users/sign_in" id="login">
+            <input type="text" name="email">
+            <input type="password" name="password">
+            <input type="submit" value="Log in">
+          </form>
+          <label>
+            <input type="checkbox" name="remember_me">
+            Remember me
+          </label>
+        </div>
+
+      </section>
+
+    <section>
+
+      <h3>Days</h3>
+
+      <label>
+        <input type="radio" name="day" value="f">
+        Friday
+      </label>
+      <label>
+        <input type="radio" name="day" value="s">
+        Saturday
+      </label>
+      <label>
+        <input type="radio" name="day" value="b">
+        Both
+      </label>
+
+    </section>
+
+    <section>
+
+      <h3>Meals</h3>
+
+      <select name="meal">
+        <option value="poulet">Poulet Frit</option>
+        <option value="poisson">Poisson Frit</option>
+        <option value="pommes">Pommes Frites</option>
+      </select>
+    </section>
+
+    </div>
+
+    <footer>
+
+      <p>@GabrielleVivier</p>
+
+    </footer>
 
   </div>
 </body>
