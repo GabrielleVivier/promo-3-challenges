@@ -1,5 +1,47 @@
+html {
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  font-weight: 300;
+}
+
 .container {
   margin: 0 auto;
   width: 720px;
 	font-family: 'Open Sans', sans-serif;
 }
+
+h1 {
+  text-align: center;
+  padding: 10px;
+}
+
+header {
+  border-bottom: 1px dotted;
+}
+
+header ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+header li {
+  display: inline-block;
+  width: 100px;
+  padding-bottom: 10px;
+}
+
+h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 1.17em;
+  font-weight: bold;
+}
+
+
