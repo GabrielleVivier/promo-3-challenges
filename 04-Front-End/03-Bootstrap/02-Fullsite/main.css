@@ -10,13 +10,13 @@ nav {
 .wrapper {
   background-size: cover;
   background-image:url('https://farm6.staticflickr.com/5154/14185447737_0aba637f46_b.jpg');
-  height: 650px;
+  height: 580px;
   text-align: center;
   color: white;
 }
 
 h1 {
-  padding-top: 250px;
+  padding-top: 200px;
 }
 
 h2 {
