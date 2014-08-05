@@ -13,6 +13,7 @@ $(function() {
   var img_player1 = $('<img src="../img/player_1.png">');
   var img_player2 = $('<img src="../img/player_2.png">');
 
+
   $('#button').on('click', function() {
 
     $('#player1_race td img').remove();
@@ -26,18 +27,7 @@ $(function() {
 
     $(document).on('keyup', function() {
 
-      if (event.which == 81) {
-        count_player1++;
-        $('#player1_race td').remove(img_player1);
-        $('#player1_race td').eq(count_player1).append(img_player1);
-      }
-      else if (event.which == 77) {
-        count_player2++;
-        $('#player2_race td').remove(img_player2);
-        $('#player2_race td').eq(count_player2).append(img_player2);
-      }
-
-      if (count_player1 == 20 || count_player2 == 20) {
+      if ((count_player1) == 20 || (count_player2) == 20) {
         var overlay = $('<div class="overlay">');
         $('body').append(overlay);
         var container = $('<div class="container">');
@@ -51,7 +41,18 @@ $(function() {
         $('<p>').text(message).appendTo(".container");
       }
 
-  });
+      if (event.which == 81) {
+        count_player1 =  count_player1 + 1;
+        $('#player1_race td').remove(img_player1);
+        $('#player1_race td').eq(count_player1).append(img_player1);
+      }
+      else if (event.which == 77) {
+        count_player2 = count_player2 + 1;
+        $('#player2_race td').remove(img_player2);
+        $('#player2_race td').eq(count_player2).append(img_player2);
+      }
+
+    });
 
   });
 
