@@ -1,30 +1,41 @@
-var start_new_game = function() {
-  $('#button').click(function() {
-    $('#button').addClass('display-none');
+var startNewSession = function() {
+  $('#button-new-session').click(function() {
+    $('#button-new-session').addClass('display-none');
     $('#form').removeClass('display-none');
   });
 };
 
+var resetGame = function() {
+  $('#player1_race .active').removeClass('active');
+  $('#player2_race .active').removeClass('active');
+  $('#player1_race td:first-child').addClass('active');
+  $('#player2_race td:first-child').addClass('active');
+  $('#button-new-game').removeClass('display-none');
+  $('table').addClass('display-none');
+};
+
 var playGame = function() {
   time = $.now()
-  $(document).on('keyup', function() {
+  $(document).unbind('keyup').on('keyup', function() {
     if (event.which == 81) {
       $('#player1_race .active').removeClass('active').next('td').addClass('active');
       if ($('#player1_race .active').is(':last-child')) {
-        winner = 0;
-        console.debug(winner);
+        winner_index = 0;
+        console.debug(winner_index);
         time = $.now() - time;
         console.debug(time);
         alert('Player1 wins!');
+        resetGame();
       }
     }
     else if (event.which == 77) {
       $('#player2_race .active').removeClass('active').next('td').addClass('active');
-      if ($('#player1_race .active').is(':last-child')) {
-        winner = 1;
-        console.debug(winner);
+      if ($('#player2_race .active').is(':last-child')) {
+        winner_index = 1;
+        console.debug(winner_index);
         time = $.now() - time;
         alert('Player2 wins!');
+        resetGame();
       }
     }
   });
@@ -35,13 +46,13 @@ $(function () {
 
   var session_id = 0;
   var game_id = 0;
-  var winner = 0;
+  var winner_index = 0;
   var timer = 0;
 
   $.get( "http://localhost:4567/session/create", function(data) {
-    $('#button').removeClass('display-none');
+    $('#button-new-session').removeClass('display-none');
     console.log(data); // Code HTML
-    start_new_game();
+    startNewSession();
     session_id = data.id;
   });
 
@@ -54,18 +65,22 @@ $(function () {
         { "name": name_player1 },
         { "name": name_player2 }
       ]
-    });
+  });
 
-    $.post("http://localhost:4567/session/" + session_id + "/game/create",
-      names,
-      function(data) {
-        console.debug(data);
-        game_id = data.game.id;
-        console.debug(game_id);
-        $('#form').addClass('display-none');
+  $('#form').addClass('display-none');
+
+  $.post("http://localhost:4567/session/" + session_id + "/game/create",
+    names,
+    function(data) {
+      console.debug(data);
+      game_id = data.game.id;
+      console.debug(game_id);
+      $('#button-new-game').removeClass('display-none');
+      $('#button-new-game').click(function() {
+        $('#button-new-game').addClass('display-none');
         $('table').removeClass('display-none');
         playGame();
-        winner = data.game.players[winner].id;
+        var winner = data.game.players[winner_index].id;
         var game = JSON.stringify({
           "winner": winner,
           "elapsed_time": time
@@ -81,7 +96,7 @@ $(function () {
           console.debug(data);
         });
       });
-
+    });
   });
 });
 
