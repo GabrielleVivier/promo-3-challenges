@@ -1,0 +1,57 @@
+.display-none {
+  display: none;
+}
+
+#button {
+  width: 25%;
+  max-height: 25%;
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  border: 1px solid black;
+}
+
+#button p {
+  padding: 10px;
+  font-family: arial;
+}
+
+table {
+  border: 1px solid black;
+  width: 60%;
+  height: 60%;
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  margin: auto;
+}
+
+tr {
+  border: 1px solid black;
+  margin: 10px;
+}
+
+td {
+  height: 50%;
+  border: 1px solid black;
+}
+
+#player1_race .active {
+  background-image: url(../img/player_1.png);
+  background-size: 80%;
+  padding: auto;
+  background-repeat: no-repeat;
+}
+
+#player2_race .active {
+  background-image: url(../img/player_2.png);
+  background-size: 80%;
+  margin: auto;
+  background-repeat: no-repeat;
+}
+
+input {
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+

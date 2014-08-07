@@ -3,11 +3,32 @@
   <head>
     <meta charset="utf-8" />
     <title>JAJAX Wagon Race</title>
-    <link rel="stylesheet" href="/css/normalize.css" />
-    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="../css/normalize.css" />
+    <link rel="stylesheet" href="../css/main.css" />
   </head>
 
   <body>
-    <script src="/js/game.js"></script>
+
+  <div class="display-none" id="button">
+    <p>Start a new game!</p>
+  </div>
+
+  <form class="display-none" id="form">
+    Player1 <input type="text" name="name" id="name_player1"><br>
+    Player2 <input type="text" name="name" id="name_player2"><br>
+    <input type="submit" value="Ok">
+  </form>'
+
+  <table class="display-none">
+    <tr id="player1_race">
+      <td class="active"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr id="player2_race">
+      <td class="active"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+  </table>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="../js/game.js"></script>
   </body>
 </html>
