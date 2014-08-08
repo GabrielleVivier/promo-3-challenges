@@ -1,19 +1,12 @@
 /* CSS classes you can use on your table td to display the relevant tile */
-td.unopened {
-  background: url('img/unopened.svg');
-  cursor: pointer;
-}
-td.opened {
-  background: url('img/opened.svg');
-}
-td.flagged {
-  background: url('img/flag.svg');
+.display-none {
+  display: none;
 }
 td.question {
   background: url('img/question.svg');
 }
-td.mine {
-  background: url('img/mine.png');
+td.opened {
+  background: url('img/opened.svg');
 }
 td.mine-neighbour-1 {
   background: url('img/1.svg');
@@ -39,6 +32,16 @@ td.mine-neighbour-7 {
 td.mine-neighbour-8 {
   background: url('img/8.svg');
 }
+td.mine {
+  background: url('img/mine.png');
+}
+td.unopened {
+  background: url('img/unopened.svg');
+}
+td.flagged {
+  background: url('img/flag.svg');
+}
+
 
 /* Positionning the Minesweep table and make sure the cells are square */
 table#minesweeper {
